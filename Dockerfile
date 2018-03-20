@@ -2,7 +2,7 @@ FROM microsoft/aspnetcore-build
 
 # set up environment
 ENV SONAR_SCANNER_VERSION=3.1.0.1141 \
-	SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
+	SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148-netcoreapp2.0 \
 	SONAR_SCANNER_MSBUILD_PATH=/opt/sonar-scanner-msbuild \
 	DOTNET_BUILD_DIR=/build_dir
 	
