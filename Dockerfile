@@ -2,7 +2,7 @@ FROM microsoft/aspnetcore-build
 
 # set up environment
 ENV SONAR_SCANNER_VERSION=3.1.0.1141 \
-	SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148-netcoreapp2.0 \
+	SONAR_SCANNER_MSBUILD_VERSION=4.1.0.1148 \
 	SONAR_SCANNER_MSBUILD_PATH=/opt/sonar-scanner-msbuild \
 	DOTNET_BUILD_DIR=/build_dir
 	
@@ -64,7 +64,7 @@ RUN set -ex; \
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 # Download the sonar scanner for msbuild
-RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION.zip -O /opt/sonar-scanner-msbuild.zip \
+RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/$SONAR_SCANNER_MSBUILD_VERSION/sonar-scanner-msbuild-$SONAR_SCANNER_MSBUILD_VERSION-netcoreapp2.0.zip -O /opt/sonar-scanner-msbuild.zip \
   && mkdir -p $SONAR_SCANNER_MSBUILD_PATH \
   && mkdir -p $DOTNET_BUILD_DIR \
   && unzip /opt/sonar-scanner-msbuild.zip -d $SONAR_SCANNER_MSBUILD_PATH \
