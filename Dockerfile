@@ -72,6 +72,9 @@ RUN wget https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/
   && chmod -R 775 $SONAR_SCANNER_MSBUILD_PATH \
   && chmod -R 775 $DOTNET_BUILD_DIR
 
+RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /bin/jq \
+    && chmod +x /bin/jq
+
 ENV PATH="$SONAR_SCANNER_MSBUILD_PATH:$SONAR_SCANNER_MSBUILD_PATH/sonar-scanner-$SONAR_SCANNER_VERSION/bin:${PATH}"
 
 WORKDIR $DOTNET_BUILD_DIR
